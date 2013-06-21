@@ -1,0 +1,16 @@
+{
+    "name": "anahita/installer",
+    "type": "project",
+    "repositories" : [
+        {
+            "type": "vcs",
+            "url" : "https://github.com/anahitasocial/anahita-new.git"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "anahita/anahita": "dev-master",        
+        "symfony/console": "2.1.*"        
+    },
+    "minimum-stability": "dev"
+}
