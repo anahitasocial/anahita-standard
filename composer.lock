@@ -1,0 +1,99 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "a652dbb6c8f1bf60a027390f6d046e75",
+    "packages": [
+        {
+            "name": "anahita/anahita",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anahitasocial/anahita-new.git",
+                "reference": "7e09cad4cd9c4a5f898dc0b854b3f3839cf32a31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anahitasocial/anahita-new/zipball/7e09cad4cd9c4a5f898dc0b854b3f3839cf32a31",
+                "reference": "7e09cad4cd9c4a5f898dc0b854b3f3839cf32a31",
+                "shasum": ""
+            },
+            "require-dev": {
+                "php": ">=5.3",
+                "symfony/console": "2.1.*"
+            },
+            "bin": [
+                "bin/anahita.php"
+            ],
+            "type": "project",
+            "description": "Anahita Social Networking Platform",
+            "keywords": [
+                "social platform"
+            ],
+            "support": {
+                "source": "https://github.com/anahitasocial/anahita-new/tree/master",
+                "issues": "https://github.com/anahitasocial/anahita-new/issues"
+            },
+            "time": "2013-06-21 13:16:51"
+        },
+        {
+            "name": "symfony/console",
+            "version": "2.1.x-dev",
+            "target-dir": "Symfony/Component/Console",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Console.git",
+                "reference": "a5e96b2363aca8a5400fec3bbcb3201a4b0513fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/a5e96b2363aca8a5400fec3bbcb3201a4b0513fb",
+                "reference": "a5e96b2363aca8a5400fec3bbcb3201a4b0513fb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Console": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "http://symfony.com",
+            "time": "2013-06-11 07:34:22"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "anahita/anahita": 20
+    },
+    "platform": {
+        "php": ">=5.3.3"
+    },
+    "platform-dev": [
+
+    ]
+}
