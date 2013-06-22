@@ -3,20 +3,20 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "26be594b41e57880232e4456a00d570d",
+    "hash": "65b32926ff0c419d568052465b74b71c",
     "packages": [
         {
             "name": "anahita/anahita",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/anahitasocial/anahita-new.git",
-                "reference": "7e09cad4cd9c4a5f898dc0b854b3f3839cf32a31"
+                "url": "https://github.com/anahitasocial/anahita.git",
+                "reference": "3ead940704bf638c4e77dbde72f8693958403132"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anahitasocial/anahita-new/zipball/7e09cad4cd9c4a5f898dc0b854b3f3839cf32a31",
-                "reference": "7e09cad4cd9c4a5f898dc0b854b3f3839cf32a31",
+                "url": "https://api.github.com/repos/anahitasocial/anahita/zipball/3ead940704bf638c4e77dbde72f8693958403132",
+                "reference": "3ead940704bf638c4e77dbde72f8693958403132",
                 "shasum": ""
             },
             "require-dev": {
@@ -32,10 +32,10 @@
                 "social platform"
             ],
             "support": {
-                "source": "https://github.com/anahitasocial/anahita-new/tree/master",
-                "issues": "https://github.com/anahitasocial/anahita-new/issues"
+                "source": "https://github.com/anahitasocial/anahita/tree/master",
+                "issues": "https://github.com/anahitasocial/anahita/issues"
             },
-            "time": "2013-06-21 13:16:51"
+            "time": "2013-06-22 02:39:49"
         },
         {
             "name": "symfony/console",
