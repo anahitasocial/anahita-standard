@@ -1,0 +1,8 @@
+S generated files #
+######################
+.*
+!.gitignore
+www/*
+config/development.yaml
+vendor/*
+
