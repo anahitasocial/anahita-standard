@@ -13,5 +13,5 @@
         "symfony/console": "2.1.*",
         "symfony/yaml": "2.3.*"        
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }
