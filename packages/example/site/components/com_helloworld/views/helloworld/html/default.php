@@ -10,7 +10,7 @@
 
 <?php if ( $viewer->guest() ) : ?>
 
-I am a guest and don't have a name
+I am a guest and I don't have a name.
 
 <?php else : ?>
 
