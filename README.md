@@ -41,7 +41,7 @@ To configure Anahita, you can use the console script utility in the root of your
 
 Run `php anahita.php` in the root of your project and you should be able to see list of commands.
 
-Run `php anahita.php init`. This will initializes your installation. This command will prompt you for database information. Once entered it will create and initializes the database.
+Run `php anahita.php site:init`. This will initializes your installation. This command will prompt you for database information. Once entered it will create and initializes the database.
 
 Once completed, the login credentials are displayed.Take a note of them. 
 
@@ -82,7 +82,7 @@ Then run the following command from your project root. This will copy the photos
 
      cp -r vendor/anahita/anahita/src/packages/photos/ packages/photos
 
-If you do `php anahita.php package:install` you can see now photo shows under the custom packages. Those are your packages. Now run the following command to install the photos app
+If you do `php anahita.php package:list` you can see now photo shows under the custom packages. Those are your packages. Now run the following command to install the photos app
 
     php anahita.php package:install photos 
 
