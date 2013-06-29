@@ -39,9 +39,9 @@ Next we need to install and configure Anahita before we can use it.
 ----------------------------------
 To configure Anahita, you can use the console script utility in the root of your project called anahita.php.
 
-Run `php anahita.php` in the root of your project and you should be able to see list of commands.
+Run `./anahita` in the root of your project and you should be able to see list of commands.
 
-Run `php anahita.php site:init`. This will initializes your installation. This command will prompt you for database information. Once entered it will create and initializes the database.
+Run `./anahita site:init`. This will initializes your installation. This command will prompt you for database information. Once entered it will create and initializes the database.
 
 Once completed, the login credentials are displayed.Take a note of them. 
 
@@ -55,9 +55,9 @@ If you are able to successfully to login, then congratulation you have successfu
 ----------------------------------
 As we mentioned Anahita provides some components as Anahita apps. You can view list of packages available to install by typing `php anahita.php package:list`. A package can contain one or many components that are related to each other.
 
-You can install any of those packages by typing `php anahita.php package:install p1 p2 …` So for example to install photos and topics you can type
+You can install any of those packages by typing `./anahita package:install p1 p2 …` So for example to install photos and topics you can type
 
-     php anahita.php package:install photos connect
+     ./package:install photos connect
 
 Now point your browser to http://localhost/myproject/www/index.php/photos and you should be able to see the photo app.
 
@@ -68,7 +68,7 @@ After installing any package we track the installed package at config/developeme
 ----------------------------------
 Anahita by default provides a simple hello world example that showcases a package file structure. To install the helloworld component run the following command
 
-     php anahita.php package:install example
+     ./anahita package:install example
 
 Now point your browser to http://localhost/myproject/www/index.php/helloworld. You should be able to see a hello world there.
 
@@ -76,15 +76,15 @@ Feel free to explore and play around with the code. You can also use any of the 
 
 Here's an example to re-use the photos app. If you have already installed the photos app you need unlink it first
 
-     php anahita.php package:uninstall photos
+     ./anahita package:uninstall photos
 
 Then run the following command from your project root. This will copy the photos package into your root packages directory
 
      cp -r vendor/anahita/anahita/src/packages/photos/ packages/photos
 
-If you do `php anahita.php package:list` you can see now photo shows under the custom packages. Those are your packages. Now run the following command to install the photos app
+If you do `./anahita package:list` you can see now photo shows under the custom packages. Those are your packages. Now run the following command to install the photos app
 
-    php anahita.php package:install photos 
+    ./anahita package:install photos 
 
 Now you can makes changes in the photos code at ROOT/pakcages/photos and see the results.
 
