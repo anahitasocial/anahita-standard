@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/anahitasocial/anahita.git",
-                "reference": "35b3d02e920533ff636e69d7e1c610505622174b"
+                "reference": "8b82b2efb4f2637c49adc495807ab491b6fdbc6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anahitasocial/anahita/zipball/35b3d02e920533ff636e69d7e1c610505622174b",
-                "reference": "35b3d02e920533ff636e69d7e1c610505622174b",
+                "url": "https://api.github.com/repos/anahitasocial/anahita/zipball/8b82b2efb4f2637c49adc495807ab491b6fdbc6a",
+                "reference": "8b82b2efb4f2637c49adc495807ab491b6fdbc6a",
                 "shasum": ""
             },
             "require": {
@@ -26,7 +26,7 @@
                 "symfony/yaml": "2.3.*"
             },
             "bin": [
-                "bin/anahita.php"
+                "bin/anahita"
             ],
             "type": "project",
             "description": "Anahita Social Networking Platform",
@@ -37,7 +37,7 @@
                 "source": "https://github.com/anahitasocial/anahita/tree/master",
                 "issues": "https://github.com/anahitasocial/anahita/issues"
             },
-            "time": "2013-06-22 23:07:02"
+            "time": "2013-06-29 20:13:06"
         },
         {
             "name": "dg/mysql-dump",
@@ -45,12 +45,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dg/MySQL-dump.git",
-                "reference": "43928fc540865372a7d94fd750ab16ffd4774e88"
+                "reference": "v1.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dg/MySQL-dump/zipball/43928fc540865372a7d94fd750ab16ffd4774e88",
-                "reference": "43928fc540865372a7d94fd750ab16ffd4774e88",
+                "url": "https://api.github.com/repos/dg/MySQL-dump/zipball/v1.1.0",
+                "reference": "v1.1.0",
                 "shasum": ""
             },
             "type": "library",
