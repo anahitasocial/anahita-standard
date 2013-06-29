@@ -1,1 +1,1 @@
-vendor/anahita/anahita/bin/anahita.php
+vendor/anahita/anahita/bin/anahita
