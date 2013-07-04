@@ -80,13 +80,15 @@ Here's an example to re-use the photos app. If you have already installed the ph
 
 Then run the following command from your project root. This will copy the photos package into your root packages directory
 
-     cp -r vendor/anahita/anahita/src/packages/photos/ packages/photos
+     cp -r vendor/anahita/anahita/packages/photos/ packages/photos
 
-If you do `php anahita package:list` you can see now photo shows under the custom packages. Those are your packages. Now run the following command to install the photos app
+Then open the ROOT/packages/photos/composer.json and change the name from "anahita/photos" to "myproject/photos",
 
-    php anahita package:install photos 
+If you do `php anahita package:list` you can see now photo shows under the myproject packages. Those are your packages. Now run the following command to install the photos app
 
-Now you can makes changes in the photos code at ROOT/pakcages/photos and see the results.
+    php anahita package:install "myproject/photos" 
+
+Now you can makes changes in the photos code at ROOT/pakcages/photos/src and see the results.
 
 
 **Note**
