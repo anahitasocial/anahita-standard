@@ -1,6 +1,7 @@
 {
     "name" : "anahita/project",
-    "type" : "project",    
+    "type" : "project",  
+    "license": "GPL-3.0",
     "require": {
         "php": ">=5.3.3",
         "anahita/anahita": "dev-master"
