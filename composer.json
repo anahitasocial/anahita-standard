@@ -1,12 +1,5 @@
 {
-    "name": "anahita/standard",
-    "type": "project",
-    "repositories" : [
-        {
-            "type": "vcs",
-            "url" : "https://github.com/anahitasocial/anahita.git"
-        }
-    ],
+    "type" : "project",    
     "require": {
         "php": ">=5.3.3",
         "anahita/anahita": "dev-master"
