@@ -15,17 +15,23 @@ http://getcomposer.org/ or just run the following command:
 
 Once you have the composer installed, you need to download the anahita standard package and place it in a folder that's accessible by a webserver
 
-To download the package you can either download the zip [package](https://github.com/anahitasocial/anahita-standard/archive/master.zip) or to clone it (recommended) using git.
+To download the package you can either 
 
-To clone run the following command in your shell
+1 - Download the zip [package](https://github.com/anahitasocial/anahita-standard/archive/master.zip) or to 
+
+2 - Clone it using git.
 
     git clone https://github.com/anahitasocial/anahita-standard.git myproject
 
+3 - Use composer create project ( recommended) 
+
+    composer create-project anahita/project myproject dev-master
+    
 Then change the directory to myproject
 
     cd myproject
 
-If you notice this is just an empty skeleton. With no code. Now we need to tell the composer to download all the dependencies by running the following command
+Unless you have used the composer create project command you need to install the dependencies first. To do that type
 
      php composer.phar install
 
