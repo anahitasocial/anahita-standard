@@ -1,4 +1,5 @@
 {
+    "name" : "anahita/project",
     "type" : "project",    
     "require": {
         "php": ">=5.3.3",
