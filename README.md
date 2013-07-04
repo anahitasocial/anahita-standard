@@ -57,7 +57,7 @@ As we mentioned Anahita provides some components as Anahita apps. You can view l
 
 You can install any of those packages by typing `php anahita package:install p1 p2 …` So for example to install photos and topics you can type
 
-     ./package:install photos connect
+     php anahita package:install photos connect
 
 Now point your browser to http://localhost/myproject/www/index.php/photos and you should be able to see the photo app.
 
