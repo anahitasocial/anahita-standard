@@ -5,12 +5,7 @@
     "require": {
         "php": ">=5.3.3",
         "anahita/anahita": "*"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.0"
-        }
-     },    
+    },     
     "minimum-stability": "dev",
     "prefer-stable": true
 }
