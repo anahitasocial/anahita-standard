@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+	$app_root = rtrim(getenv('OPENSHIFT_REPO_DIR'),'/');
+	$www_dir  = $app_root.'/www';
+	passthru("$app_root/composer update");
+	$host = getenv('OPENSHIFT_MYSQL_DB_HOST');
+	$port = getenv('OPENSHIFT_MYSQL_DB_PORT');
+	$user = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
+	$password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+	$database	 = getenv('OPENSHIFT_APP_NAME').'_production';
+	$cmd = function($cmd) use($app_root) {
+		passthru("php $app_root/vendor/bin/anahita $cmd");
+	};
+	$init_cmd = "site:init -n --database-name=$database --database-user=$user --database-password=$password --database-port=$port --database-host=$host";
+	$data_dir = getenv('OPENSHIFT_DATA_DIR');
+	if ( file_exists($data_dir.'/init.sql') ) {
+		$init_cmd .= " --database-dump=".$data_dir.'/init.sql';
+	}
+	$cmd($init_cmd);	
+	exec("cd $app_root && ln -s www php");
+	//install apps
+
+	if ( file_exists($data_dir.'/apps.txt') ) {
+		$apps = file_get_contents($data_dir.'/apps.txt');
+		$cmd("package:install $apps");
+	}
+	$cmd("db:migrate:up");		
+?>
