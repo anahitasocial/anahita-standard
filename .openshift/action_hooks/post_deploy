@@ -2,7 +2,7 @@
 <?php
 	$app_root = rtrim(getenv('OPENSHIFT_REPO_DIR'),'/');
 	$www_dir  = $app_root.'/www';
-	passthru("$app_root/composer update");
+	passthru("$app_root/bin/composer update");
 	$host = getenv('OPENSHIFT_MYSQL_DB_HOST');
 	$port = getenv('OPENSHIFT_MYSQL_DB_PORT');
 	$user = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
