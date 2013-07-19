@@ -1,0 +1,7 @@
+#!/usr/bin/env php
+<?php
+	$app_root = rtrim(getenv('OPENSHIFT_REPO_DIR'),'/');
+	$www_dir  = $app_root.'/www';
+	mkdir($www_dir, 0755);
+	exec("cd $app_root && ln -s www php");
+?>
