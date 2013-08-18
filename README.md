@@ -1,104 +1,60 @@
-Anahita Standard Project
-========================
-Anahita Standard Project is the preferred way for getting started to develop new applications on the Anahita Platform.
+## Before you start
 
-The standard project gives you a skeleton in addition to command line tool for managing your Anahita installation.
+Make sure that your server meets the system requirements:
 
-1) Setting up a project
-----------------------------------
-Anahita Standard Project extensively uses the composer package manager for installing and managing dependency.
-
-If you don't have Composer yet, download it following the instructions on
+1. **Linux** or **Unix** server. You may encounter problems on a Windows server.
+2. Apache 2.0+ (with mod_mysql, mod_xml, mod_zlib) or nginx
+3. MySql 5.0+
+4. php 5.2+ with APC
+5. If you have Zend Optimizer on your server **disable it**!
+6. If you have the suhosin patch installed on your server you might get an error. [Here is how you can fix it](https://www.assembla.com/spaces/nooku-framework/wiki/Known_Issues).
+7. Composer package management. You can download it following the instructions on
 http://getcomposer.org/ or just run the following command:
 
-    curl -s http://getcomposer.org/installer | php
+`curl -s http://getcomposer.org/installer | php`
 
-Once you have the composer installed, you need to download the anahita standard package and place it in a folder that's accessible by a webserver
+## Installing Anahita
 
-To download the package you can either 
-
-1 - Download the zip [package](https://github.com/anahitasocial/anahita-standard/archive/master.zip) or to 
-
-2 - Clone it using git.
-
-    git clone https://github.com/anahitasocial/anahita-standard.git myproject
-
-3 - Use composer create project ( recommended) 
+Use the following Composer command to create an Anahita project called _myproject_. This command automatically downloads all the required files from the [Anahita GitHub repository](https://github.com/anahitasocial):
 
     composer create-project anahita/project myproject dev-master
-    
-Then change the directory to myproject
+
+**Please note:** system asks you "Do you want to remove the existing VCS (.git, .svn..) history?" so just answer Y and press enter.
+
+Now go to the _myproject_ directory:
 
     cd myproject
 
-Unless you have used the composer create project command you need to install the dependencies first. To do that type
+If you type _php anahita_ you get a list of all commands available to manage your Anahita installation. In order to initialize your Anahita installation run the following command and provide your database information when it is asked from you:
 
-     php composer.phar install
+    php anahita site:init
 
-This will take few minutes as it try to download all the dependencies.
+After the command is executed you can go to the _http://localhost/myproject/www_ folder to access your Anahita installation. The first account that is created on this installation will be the _Super Administrator_ account. Go to the _http://localhost/myproject/www/people/signup_ and create an account.
 
-Once finished, have a look around in the vendor directories and you should be able to spot the anahita folder along with other packages. The anahita folder contains all the code required for running Anahita. If you look into the src folder in anahita/anahita. You'll see two folders anahita and packages. anahita folder contains the core package files that's required to run a minimum installation of Anahita. packages folder contains all the extra components that can be installed on Anahita.
+**Congratulations!** You have just installed your Anahita installation successfully.
 
-Next we need to install and configure Anahita before we can use it.
+**Hint:** you need to custom configure your server to recognize the _http://localhost/myproject/www_ as the home directory of your website. 
 
-1) Installation and Configuration
-----------------------------------
-To configure Anahita, you can use the console script utility in the root of your project called anahita.php.
+**Hint:** Since you are the _Super Admin_ you can also access the administration back-end via  _http://localhost/myproject/www/administration_
 
-Run `php anahita` in the root of your project and you should be able to see list of commands.
+## Installing Anahita apps and components
 
-Run `php anahita site:init`. This will initializes your installation. This command will prompt you for database information. Once entered it will create and initializes the database.
+Now it is time to extend your Anahita installation with some apps and components. Anahita already comes with some really useful ones. To get a list of them simply type the following command:
 
-Once completed, the login credentials are displayed.Take a note of them. 
+    php anahita package:list
 
-Also you should be able to spot a 'www' folder in the root of your project. This is the public folder that you need to point your web server to (example: http://localhost/myproject/www). 
+Now in order to install an app, for example the Photos app, type the following command:
 
-If you have pointed your browser the www folder you should be able to see the Anahita home page. Try to log in with your login credentials.
+    php anahita package:install photos
 
-If you are able to successfully to login, then congratulation you have successfully installed and configured Anahita 
+You can even provide a list of apps and components in one line. For example to install the Groups, Topics, and Connect apps use the following command:
 
-2) Installing Components  
-----------------------------------
-As we mentioned Anahita provides some components as Anahita apps. You can view list of packages available to install by typing `php anahita.php package:list`. A package can contain one or many components that are related to each other.
+    php anahita package:install groups topics connect
 
-You can install any of those packages by typing `php anahita package:install p1 p2 …` So for example to install photos and topics you can type
+In order to uninstall apps and extensions you can simply use the following command:
 
-     php anahita package:install photos connect
+    php anahita package:uninstall photos
 
-Now point your browser to http://localhost/myproject/www/index.php/photos and you should be able to see the photo app.
+**HINT:** In the administration back-end you can go to the _Extend > Components_ and further define whether an app should optionally or always be available on actor profiles (people, groups, etc.). If an app is optionally available, then on each actor profile the app can be enabled under the _Edit Profile > Apps_.
 
-**Note**
-After installing any package we track the installed package at config/developement.yaml. That way when you just type `php anahita.php package:install` it will try to re-install (upate the symlink in www) the packages listed in developement.yaml.
-
-3) Hello World Component
-----------------------------------
-Anahita by default provides a simple hello world example that showcases a package file structure. To install the helloworld component run the following command
-
-     php anahita package:install example
-
-Now point your browser to http://localhost/myproject/www/index.php/helloworld. You should be able to see a hello world there.
-
-Feel free to explore and play around with the code. You can also use any of the existing apps as a starting point either by going directly to vendor/anahita/anahita/src/packages or by simply copying them into the root packages folder. 
-
-Here's an example to re-use the photos app. If you have already installed the photos app you need unlink it first
-
-     php anahita package:uninstall photos
-
-Then run the following command from your project root. This will copy the photos package into your root packages directory
-
-     cp -r vendor/anahita/anahita/packages/photos/ packages/photos
-
-Then open the ROOT/packages/photos/composer.json and change the name from "anahita/photos" to "myproject/photos",
-
-If you do `php anahita package:list` you can see now photo shows under the myproject packages. Those are your packages. Now run the following command to install the photos app
-
-    php anahita package:install "myproject/photos" 
-
-Now you can makes changes in the photos code at ROOT/pakcages/photos/src and see the results.
-
-
-**Note**
-If you have APC and have enabled the caching, then object paths are cached in the memory for performance reason. To clear the cache you can go in the back-end and turn off and then turn on the cache or go in the 'www' folder find the configuration.php file and set the cahce to 0, refresh the page and then set it back to 1. This will empty the cahce.
-
-   
-
+Congratulations! You have just installed some apps and extensions on your Anahita installation.
