@@ -36,7 +36,7 @@ class StandardScriptCallback
      */
     static public function postCreatProject(Event $event)
     {
-        
+        passthru("./anahita site:init");
     }
 }
 
