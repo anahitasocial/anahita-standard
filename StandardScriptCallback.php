@@ -17,9 +17,12 @@ class StandardScriptCallback
      */
     static public function postUpdate(Event $event)
     {
-        $io = $event->getIO();
-        if ( $io->askConfirmation('<info>Do you want to run database migrations ?</info>') ) {
-            $io->write('<info>Running database migrations...</info>');
+        if ( file_exists(__DIR__.'/www/configuration.php') )
+        {
+            $io = $event->getIO();
+            //re-symlink
+            passthru("./anahita site:init -n");
+            //run-migration
             passthru("./anahita db:migrate:up");
         }
     }
