@@ -4,7 +4,16 @@
     "license": "GPL-3.0",
     "require": {
         "php": ">=5.3.3",
-        "anahita/anahita": "dev-master"
-    },     
+        "anahita/anahita": "dev-hook-feature"
+    },   
+    "autoload": {
+        "psr-0": {
+            "StandardScriptCallback": ""
+        }
+    },    
+    "scripts" : {  
+        "post-update-cmd" : "StandardScriptCallback::postUpdate",
+        "post-create-project-cmd" : "StandardScriptCallback::postCreatProject"
+    },
     "minimum-stability": "dev"
 }
