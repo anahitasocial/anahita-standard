@@ -1,23 +1,43 @@
 #!/usr/bin/env php
 <?php
-	$app_root = rtrim(getenv('OPENSHIFT_REPO_DIR'),'/');
-	$www_dir  = $app_root.'/www';
-	passthru("cd $app_root && php $app_root/bin/composer update");
-	$host = getenv('OPENSHIFT_MYSQL_DB_HOST');
+    $host = getenv('OPENSHIFT_MYSQL_DB_HOST');
 	$port = getenv('OPENSHIFT_MYSQL_DB_PORT');
 	$user = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
-	$password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
-	$database	 = getenv('OPENSHIFT_APP_NAME').'_production';
-	$cmd = function($cmd) use($app_root) {
-		passthru("cd $app_root && php $app_root/vendor/bin/anahita $cmd");
+	$pass = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+	$db   = getenv('OPENSHIFT_APP_NAME');
+	
+	$repo = rtrim(getenv('OPENSHIFT_REPO_DIR'),'/');
+    $data = rtrim(getenv('OPENSHIFT_DATA_DIR'),'/');
+	$openshift = $repo.'/.openshift';
+	
+	$cmd = function($cmd) use($repo) {
+		passthru("cd $repo && php $repo/vendor/anahita/anahita/bin/anahita $cmd");
 	};
-	$init_cmd = "site:init -n --database-name=$database --database-user=$user --database-password=$password --database-port=$port --database-host=$host";
-	$data_dir = $app_root.'/.openshift';
-	$cmd($init_cmd);
-	if ( file_exists($data_dir.'/apps.txt') ) {
-		$apps = file_get_contents($data_dir.'/apps.txt');
+	
+	passthru("cd $repo && php $repo/bin/composer install");
+	
+	// Check if we've run the installer before
+	if(file_exists($data.'/configuration.php')) {
+		// if so, just link everything together
+		$cmd("site:symlink");
+	} else {
+		// if not, initiate the site
+		$init = "site:init -n --database-name=$db --database-user=$user --database-password=$pass --database-port=$port --database-host=$host";
+		$cmd($init);
+		// move the config file to the data folder for long term storage
+		passthru("mv $repo/www/configuration.php $data");
+	}
+	
+	// create a symlink so anahita can find it
+	passthru("ln -s $data/configuration.php $repo/www");
+	
+	// install apps listed in the .openshift/apps file
+	if(file_exists($openshift.'/apps.txt')) {
+		$apps = file_get_contents($openshift.'/apps.txt');
+		passthru('Installing apps...');
 		$cmd("package:install $apps");
-	}	
-	//install apps
-	$cmd("db:migrate:up");		
+	}
+	
+	// run any migrations
+	$cmd("db:migrate:up");
 ?>
