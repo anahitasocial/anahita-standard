@@ -16,7 +16,7 @@
 	
 	passthru("cd $repo && php $repo/bin/composer install");
 	
-	// Check if we've run the installer before
+	// Check if the installer has run before
 	if(file_exists($data.'/configuration.php')) {
 		// if so, just link everything together
 		$cmd("site:symlink");
@@ -26,10 +26,14 @@
 		$cmd($init);
 		// move the config file to the data folder for long term storage
 		passthru("mv $repo/www/configuration.php $data");
+		// make the assets folders
+		passthru("mkdir $data/assets");
 	}
 	
 	// create a symlink so anahita can find it
 	passthru("ln -s $data/configuration.php $repo/www");
+	// create a symlink between the asset folders
+	passthru("ln -s $data/assets $repo/www/assets");
 	
 	// install apps listed in the .openshift/apps file
 	if(file_exists($openshift.'/apps.txt')) {
