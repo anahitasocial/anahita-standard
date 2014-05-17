@@ -5,6 +5,12 @@
     "require": {
         "php": ">=5.3.3",
         "anahita/anahita": "3.0.*"
-    },     
+    },
+	"repositories": [
+	    {
+		    "type":"vcs",
+			"url":"https://github.com/NicholasJohn16/anahita.git"
+		}
+	],
     "minimum-stability": "stable"
 }
