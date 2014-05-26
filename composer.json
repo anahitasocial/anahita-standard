@@ -6,11 +6,5 @@
         "php": ">=5.3.3",
         "anahita/anahita": "dev-master"
     },
-	"repositories": [
-	    {
-		    "type":"vcs",
-			"url":"https://github.com/NicholasJohn16/anahita.git"
-		}
-	],
     "minimum-stability": "stable"
 }
