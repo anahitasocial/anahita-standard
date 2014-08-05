@@ -5,6 +5,7 @@ S generated files #
 !.openshift
 anahita
 www/*
+!www/.gitignore
 config/development.yaml
 vendor/*
 
