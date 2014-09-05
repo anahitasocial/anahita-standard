@@ -18,6 +18,8 @@
 	
 	// Check if the installer has run before
 	if(file_exists($data.'/configuration.php')) {
+		// create a symlink so anahita can find it
+		passthru("ln -s $data/configuration.php $repo/www");
 		// if so, just link everything together
 		$cmd("site:symlink");
 	} else {
@@ -26,12 +28,12 @@
 		$cmd($init);
 		// move the config file to the data folder for long term storage
 		passthru("mv $repo/www/configuration.php $data");
+		// create a symlink so anahita can find it
+		passthru("ln -s $data/configuration.php $repo/www");
 		// make the assets folders
 		passthru("mkdir $data/assets");
 	}
 	
-	// create a symlink so anahita can find it
-	passthru("ln -s $data/configuration.php $repo/www");
 	// create a symlink between the asset folders
 	passthru("ln -s $data/assets $repo/www/assets");
 	
