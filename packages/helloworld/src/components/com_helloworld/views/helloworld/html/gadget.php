@@ -1,9 +1,3 @@
-<pre>
-	<?php
-		print_r(array_keys(get_defined_vars()));
-	?>
-</pre>
-
 <div class="alert alert-info alert-block">
 	<p>Welcome to the gadget for the Hello World app. A gadget is 
 	automatically added to the Dashboard whenever a social app is installed.
