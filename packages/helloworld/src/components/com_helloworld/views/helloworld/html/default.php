@@ -1,4 +1,4 @@
-<?php defined('KOOWA') or die() ?>
+<?php defined('ANAHITA') or die() ?>
 
  <!-- Translated Text example -->
 <h1><?= @text('COM-HELLOWORLD') ?></h1>
