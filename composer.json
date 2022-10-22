@@ -3,7 +3,7 @@
     "type" : "project",  
     "license": "GPL-3.0",
     "require": {
-        "php": ">=7.0 < 8.0",
+        "php": ">=7.0",
         "anahita/anahita": "4.7.*"
     },
     "minimum-stability": "stable"
