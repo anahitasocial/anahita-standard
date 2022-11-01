@@ -4,7 +4,7 @@
     "license": "GPL-3.0",
     "require": {
         "php": ">=7.4",
-        "anahita/anahita": "4.7.*"
+        "anahita/anahita": "v4.7.*"
     },
     "minimum-stability": "stable"
 }
